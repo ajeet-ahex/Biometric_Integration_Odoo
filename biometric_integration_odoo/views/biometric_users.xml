@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_biometric_users_tree" model="ir.ui.view">
+        <field name="name">biometric.user.tree</field>
+        <field name="model">biometric.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_biometric_users_form" model="ir.ui.view">
+        <field name="name">biometric.user.form</field>
+        <field name="model">biometric.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="user_id"/>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_biometric_users" model="ir.actions.act_window">
+        <field name="name">Biometric Users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biometric.user</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_biometric" name="Biometric" parent="hr_attendance.menu_hr_attendance_root"
+              action="action_biometric_users"/>
+    <menuitem id="menu_biometric_users" name="Biometric Users" parent="menu_biometric" action="action_biometric_users"/>
+
+    <record id="view_biometric_sync_form" model="ir.ui.view">
+        <field name="name">biometric.sync.form</field>
+        <field name="model">biometric.sync</field>
+        <field name="arch" type="xml">
+            <form string="Biometric Sync">
+                <group>
+                    <field name="ip_address" placeholder="Enter IP address"/>
+                    <field name="port" placeholder="Enter port number"/>
+                </group>
+                <group>
+                    <div style="width: 100px;">
+                        <button name="sync_users" string="Sync Users" type="object" class="btn-primary"/>
+                    </div>
+                    <div >
+                        <button name="sync_attendance" string="Sync Attendance" type="object" class="btn-primary"/>
+                    </div>
+                </group>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_biometric_sync" model="ir.actions.act_window">
+        <field name="name">Biometric Sync</field>
+        <field name="res_model">biometric.sync</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_biometric_sync" name="Biometric sync" parent="menu_biometric" action="action_biometric_sync"/>
+</odoo>
+

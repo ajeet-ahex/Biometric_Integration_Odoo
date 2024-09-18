@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_biometric_attendance_tree" model="ir.ui.view">
+        <field name="name">biometric.attendance.tree</field>
+        <field name="model">biometric.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="name"/>
+                <field name="formatted_datetime" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_biometric_attendance_form" model="ir.ui.view">
+        <field name="name">biometric.attendance.form</field>
+        <field name="model">biometric.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="user_id"/>
+                    <field name="name"/>
+                    <field name="timestamp"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_biometric_attendance_search" model="ir.ui.view">
+        <field name="name">biometric.attendance.search</field>
+        <field name="model">biometric.attendance</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="timestamp" string="Date" />
+                <group name="group_by_user">
+                    <field name="user_id"/>
+                </group>
+
+                <field name="user_id" string="User"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_biometric_attendance" model="ir.actions.act_window">
+            <field name="name">Biometric Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">biometric.attendance</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_biometric_attendance_records" name="Biometric Attendance" parent="menu_biometric" action="action_biometric_attendance"/>
+</odoo>
+

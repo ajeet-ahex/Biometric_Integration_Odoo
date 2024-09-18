@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biometric_attendance,access.biometric.attendance,model_biometric_attendance,,1,1,1,1
+access_biometric_user,access.biometric.user,model_biometric_user,,1,1,1,1
+access_biometric_sync,access.biometric.sync,model_biometric_sync,,1,1,1,1
